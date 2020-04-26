@@ -1,0 +1,424 @@
+@import url('https://fonts.googleapis.com/css?family=Manrope&display=swap&subset=cyrillic');
+@import url('https://fonts.googleapis.com/css?family=Lexend+Giga&display=swap');
+
+h1{
+    family-font: "Manrope", sans-serif;
+    color: white;
+    text-align: center;
+    padding-bottom: 50px;
+}
+
+h2:hover {
+    opacity: 1;
+}
+
+body{
+	margin: 0;
+	padding: 0;
+	font-family: 'Manrope' ,sans-serif;
+	background-color: #202125;
+}
+
+.logo {
+    text-align: center;
+}
+
+section {
+    height: 500px;
+    display: inline-block;
+}
+
+.container {
+    text-align: center;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+}
+
+.container span{
+    text-transform: uppercase;
+    display: block;
+}
+
+.container p{
+    padding: 30px;
+}
+
+.text1{
+    font-family: "Lexend Giga", sans-serif;
+    color: #FFFFFF;
+    font-size: 60px;
+    font-weight: 700;
+    letter-spacing: 8px;
+    margin-bottom: 20px;
+    background: #202125;
+    position: relative;
+    animation: text 3s 1;
+
+}
+
+.text2{
+    color: white;
+    font-size: 20px;
+}
+
+@keyframes text{
+    0%{
+        color: #000;
+        margin-bottom: -40px;
+    }
+    30%{
+        letter-spacing: 25px;
+        margin-bottom: -40px;
+    }
+    85%{
+        letter-spacing: 8px;
+        margin-bottom: -40px;
+    }
+}
+
+.box{
+	width: 300px;
+	padding: 40px;
+	position: absolute;
+	top: 50%;
+	left: 50%;
+	transform: translate(-50%,-50%);
+	text-align: center;
+}
+.box h1{
+	color: white;
+	text-transform: uppercase;
+	font-weight: 500;
+}
+
+.box input[type = "text"],.box input[type = "password"],.box input[type = "email"]{
+	border: 0;
+	background: none;
+	display: block;
+	margin: 5px auto;
+	text-align: center;
+	border: 2px solid #D9833E;
+	padding: 14px 10px;
+	width: 200px;
+	outline: none;
+	color: white;
+	border-radius: 24px;
+	transition: 0.25s;
+}
+.box input[type = "text"]:focus,.box input[type = "password"]:focus,.box input[type = "email"]:focus{
+	width: 280px;
+	border-color: #D9833E;
+}
+
+.box input[type = "submit"]{
+	border: 0;
+	background: none;
+	display: block;
+	margin: 20px auto;
+	text-align: center;
+	border: 2px solid #D9833E;
+	padding: 14px 40px;
+	outline: none;
+	color: white;
+	border-radius: 24px;
+	transition: 0.25s;
+	cursor: pointer;
+}
+.box input[type = "submit"]:hover{
+	background: #2ecc71;
+}
+
+.middle{
+  position: absolute;
+  top: 25%;
+  left: 50%;
+  transform: translate(-50%,-50%);
+  text-align: center;
+}
+.btn{
+  text-decoration: none;
+  background: none;
+  border: 2px solid #D9833E;
+  font-family: "Manrope", sans-serif;
+  text-transform: uppercase;
+  padding: 12px 20px;
+  min-width: 200px;
+  margin: 10px;
+  cursor: pointer;
+  color: #E79042;
+  transition: color 0.4s linear;
+  position: relative;
+}
+.btn:hover{
+  color: #fff;
+}
+.btn::before{
+  content: "";
+  position: absolute;
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  background: #D9833E;
+  z-index: -1;
+  transition: transform 0.5s;
+  transform-origin: 0 0;
+  transition-timing-function: cubic-bezier(0.5,1.6,0.4,0.7);
+}
+
+.btn-primary::before{
+  transform: scaleX(0);
+}
+.btn-success::before{
+  transform: scaleY(0);
+}
+.btn-primary:hover::before{
+  transform: scaleX(1);
+}
+.btn-success:hover::before{
+  transform: scaleY(1);
+}
+header {
+  display: flex;
+  justify-content: flex-end;
+  align-items: center;
+  padding: 10px 10%;
+  background-color: #35363A;
+}
+
+.logo {
+  margin-right: auto;
+}
+
+.nav__links {
+  list-style: none;
+  display: flex;
+}
+
+.nav__links a,
+.cta,
+.overlay__content a {
+  font-family: "Manrope", sans-serif;
+  font-weight: 500;
+  color: #edf0f1;
+  text-decoration: none;
+}
+
+.nav__links li {
+  padding: 1px 15px;
+}
+
+.nav__links li a {
+  transition: all 0.3s ease 0s;
+}
+
+.nav__links li a:hover {
+  opacity: 0.5;
+}
+
+.cta {
+  margin-left: 20px;
+  padding: 9px 25px;
+  background-color: rgba(183,114,52, 1);
+  border: none;
+  border-radius: 50px;
+  cursor: pointer;
+  transition: all 0.3s ease 0s;
+}
+
+.cta:hover {
+  opacity: 0.8;
+}
+
+.mini-recipe {
+    height: 250px;
+    width: 800px;
+    margin: auto;
+    margin-bottom: 20px;
+    border: 2px solid #4E4F53;
+    border-radius: 15px;
+    background-color: #202125;
+    padding: .5rem;
+    display: flex;
+    flex-direction: column;
+}
+
+.image{
+    border-radius: 10px;
+    width: 350px;
+    height: 250px;
+    position: relative;
+}
+
+.image img {
+    object-fit: cover;
+    height: 100%;
+    width: 100%;
+}
+
+.info{
+    background-color: #202125;
+    width: 400px;
+    height: 245px;
+    text-align: center;
+    position: absolute;
+    left: 49.2%;
+
+}
+
+.info a, h2{
+    text-decoration: none;
+    color: white;
+    transition: 0.3s ease 0s;
+}
+
+.info a:hover, h2:hover{
+    opacity: 0.7;
+}
+
+.info h2, p {
+    color: white;
+}
+
+.search-box {
+    margin-right: auto;
+}
+
+.search-box input,button{
+    font-family: "Manrope", sans-serif;
+    border: 2px solid white;
+    font-size: 12px;
+    padding: 12px;
+    background: transparent;
+    color: white;
+}
+.search-box button{
+    width: 29%;
+    background: #eee;
+    color: black;
+    float: right;
+}
+
+.search-box button{
+  transition: all 0.3s ease 0s;
+}
+
+.search-box button:hover {
+  opacity: 0.7;
+}
+.add_recipe textarea{
+    margin:auto;
+	border: 0;
+	background: none;
+	display: block;
+	margin: 5px auto;
+	border: 2px solid #D9833E;
+	padding: 14px 10px;
+	width: 300px;
+	outline: none;
+	color: white;
+	border-radius: 24px;
+	transition: 0.25s;
+	resize: none;
+
+}
+
+.add_recipe textarea:focus{
+	width: 400px;
+	border-color: #D9833E;
+}
+
+.add_recipe input[type = "text"]{
+	border: 0;
+	background: none;
+	display: block;
+	margin: 5px auto;
+	text-align: center;
+	border: 2px solid #D9833E;
+	padding: 14px 10px;
+	width: 200px;
+	outline: none;
+	color: white;
+	border-radius: 24px;
+	transition: 0.25s;
+}
+.add_recipe input[type = "text"]:focus{
+	width: 280px;
+	border-color: #D9833E;
+}
+
+.add_recipe input[type = "file"]{
+	display: none;
+}
+
+.add_recipe input[type = "submit"]{
+	border: 0;
+	background: none;
+	display: block;
+	margin: 20px auto;
+	text-align: center;
+	border: 2px solid #D9833E;
+	padding: 14px 40px;
+	outline: none;
+	color: white;
+	border-radius: 24px;
+	transition: 0.25s;
+	cursor: pointer;
+}
+.add_recipe input[type = "submit"]:hover{
+	background: #2ecc71;
+}
+
+.add_recipe label{
+    height: 40px;
+    width: 250px;
+    background-color: #D9833E;
+    margin: auto;
+    display: block;
+    text-align: center;
+    border-radius: 15px;
+    font-size: 20px;
+    display: flex;
+    justify-content: center;
+    transition: 0.25s;
+}
+
+.add_recipe label:hover{
+    opacity: 0.7;
+}
+
+
+.recipe-page-img {
+    text-align: center;
+}
+
+.about {
+    position: absolute;
+    left: 25%;
+    text-align: center;
+}
+
+.ingredients {
+    color: white;
+    position: absolute;
+    left: 75%;
+}
+
+.steps {
+    color: white;
+    position: absolute;
+    left: 47%;
+}
+
+.about {
+    position: absolute;
+    top: 30%;
+}
+
+.about p{
+    font-size: 20px;
+    margin: auto;
+    padding: 20px;
+}

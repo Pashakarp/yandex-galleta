@@ -1,0 +1,75 @@
+{% extends "base.html" %}
+
+{% block content %}
+{% if param %}
+    <h1>Редактирование рецепта</h1>
+{% else %}
+    <h1>Добавление рецепта</h1>
+{% endif %}
+<form class="add_recipe" action="" method="POST" enctype="multipart/form-data">
+    {{ form.hidden_tag() }}
+    {{ form.csrf_token }}
+    <p>
+        {% if param %}
+            {{ form.title(type="text", class="form-control", value=param['title']) }}<br>
+        {% else %}
+            {{ form.title(class="form-control", placeholder='Название рецепта') }}<br>
+        {% endif %}
+        {% for error in form.title.errors %}
+            <p class="alert alert-danger" role="alert">
+                {{ error }}
+            </p>
+        {% endfor %}
+    </p>
+    <p>
+        {% if param %}
+            {% set i = form.ingredients.process_data(value=param['ingredients']) %}
+            {{ form.ingredients(class="form-control", rows="10", cols="85") }}<br>
+        {% else %}
+            {{ form.ingredients(class="form-control", rows="10", cols="85", placeholder='Введите ингредиенты в формате: "название"; "кол-во" "единицы измерения" через Enter') }}<br>
+        {% endif %}
+        {% for error in form.ingredients.errors %}
+            <p class="alert alert-danger" role="alert">
+                {{ error }}
+            </p>
+        {% endfor %}
+    </p>
+    <p>
+        {% if param %}
+            {% set s = form.steps.process_data(param['steps']) %}
+            {{ form.steps(class="form-control", rows="10", cols="85") }}<br>
+        {% else %}
+            {{ form.steps(class="form-control", rows="10", cols="85", placeholder="Введите каждый шаг приготовления через Enter") }}<br>
+        {% endif %}
+        {% for error in form.steps.errors %}
+            <p class="alert alert-danger" role="alert">
+                {{ error }}
+            </p>
+        {% endfor %}
+    </p>
+    <p>
+        {% if param %}
+            {% set a = form.about.process_data(param['about']) %}
+            {{ form.about(class="form-control", rows="5", cols="40") }}<br>
+        {% else %}
+            {{ form.about(class="form-control", rows="5", cols="40", placeholder="Если есть, что добавить") }}<br>
+        {% endif %}
+        {% for error in form.about.errors %}
+            <p class="alert alert-danger" role="alert">
+                {{ error }}
+            </p>
+        {% endfor %}
+    </p>
+    <p>
+        <input type="file" id="photo" name="photo">
+        <label for="photo">Выберите фото</label>
+        {% for error in form.photo.errors %}
+            <p class="alert alert-danger" role="alert">
+                {{ error }}
+            </p>
+        {% endfor %}
+    </p>
+    <p>{{ form.submit(type="submit") }}</p>
+    <div>{{ message }}</div>
+</form>
+{% endblock %}

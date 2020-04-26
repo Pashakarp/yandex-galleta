@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <link rel="stylesheet" href="/static/css/style.css">
+    {% if title %}
+        <title>{{ title }}</title>
+    {% else %}
+        <title>Galleta</title>
+    {% endif %}
+</head>
+<body>
+<header>
+    <a class="logo" href="/home"><img src="/static/img/logo.png" alt="logo"></a>
+            <nav>
+                <ul class="nav__links">
+                    {% if current_user.is_authenticated %}
+                        <li><a href="/user/{{ current_user.id }}">{{ current_user.name }} {{ current_user.surname }}</a></li>
+                        <li><a href="/logout">Выход</a></li>
+                        <li><a href="/add_recipe">Добавить свой рецепт</a></li>
+                    {% else %}
+                        <li><a href="/register">Регистрация</a></li>
+                        <li><a href="/login">Вход</a></li>
+                    {% endif %}
+                    <li><a href="/about">Подробнее о Galleta</a></li>
+                    <li><form class="search-form" method="GET">
+                        <div class="search-box">
+                            <input type="text" placeholder="Название рецепта" name="q" value="{{ request.args.get('q', '') }}">
+                            <button type="submit">Искать</button>
+                        </div>
+                    </form></li>
+                </ul>
+            </nav>
+</header>
+<!-- Begin page content -->
+<main role="main" class="content">
+    {% block content %}{% endblock %}
+</main>
+</body>
+</html>

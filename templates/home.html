@@ -1,0 +1,21 @@
+{% extends "base.html" %}
+
+{% block content %}
+{% if message %}
+<h1>{{ message }}</h1>
+{% else %}
+<h1>Рецепты пользователей</h1>
+{% endif %}
+{% for recipe in recipes %}
+<div class="mini-recipe">
+    <div class="image">
+        <img src="{{ recipe.photo }}">
+    </div>
+    <div class="info">
+        <a href="recipe_page/{{ recipe.id }}"><h2>{{ recipe.title }}</h2></a>
+        <a href="user/{{ recipe.user_id }}">Автор: {{ recipe.user.surname }} {{ recipe.user.name }}</a>
+        <p>Описание: {{ recipe.about }}</p>
+    </div>
+</div>
+{% endfor %}
+{% endblock %}

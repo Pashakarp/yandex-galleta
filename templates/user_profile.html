@@ -1,0 +1,32 @@
+{% extends "base.html" %}
+
+{% block content %}
+{% if message %}
+<h1>{{ message }}</h1>
+{% else %}
+<h1>Профиль пользователя {{ user.name }} {{ user.surname }}</h1>
+<center><p>Дата создания аккаунта: {{ user.created_date.date() }}</p></center>
+{% if recipe_message %}
+    <center><h2>{{ recipe_message }}</h2></center>
+{% else %}
+    <center><h2>Рецепты пользователя:</h2></center>
+    {% for recipe in recipes %}
+    <div class="mini-recipe">
+        <div class="image">
+            <img src="/{{ recipe.photo }}">
+        </div>
+        <div class="info">
+            <a href="/recipe_page/{{ recipe.id }}"><h2>{{ recipe.title }}</h2></a>
+            <p>Описание: {{ recipe.about }}</p>
+            {% if current_user.is_authenticated and current_user == recipe.user or current_user.id == 1 %}
+                <div class="btns">
+                    <a class="delete-recipe-btn" href="/edit_recipe/{{ recipe.id }}"><img src="/static/img/edit_icon.png"></a>
+                    <a class="edit-recipe-btn" href="/recipe_delete/{{ recipe.id }}"><img src="/static/img/delete_icon.png"></a>
+                </div>
+            {% endif %}
+        </div>
+    </div>
+    {% endfor %}
+{% endif %}
+{% endif %}
+{% endblock %}

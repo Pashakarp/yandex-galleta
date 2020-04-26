@@ -1,0 +1,30 @@
+{% extends "base.html" %}
+
+{% block content %}
+{% if message %}
+<h1>{{ message }}</h1>
+{% else %}
+<h1>{{ recipe.title }}</h1>
+<p class="recipe-page-img"><img src='/{{ recipe.photo }}' width="500"/></p>
+<div class="about">
+    <h2>Описание</h2>
+    <p>{{ recipe.about }}</p>
+</div>
+<div class="ingredients">
+    <h2>Ингредиенты</h2>
+    <ul>
+        {% for item in ingredients%}
+            <li>{{item}}</li>
+        {% endfor %}
+    </ul>
+</div>
+<div class="steps">
+    <h2>Шаги приготовления</h2>
+    <ol>
+        {% for item in steps %}
+            <li>{{item}}</li>
+        {% endfor %}
+    </ol>
+</div>
+{% endif %}
+{% endblock %}
