@@ -6,10 +6,6 @@
 {% else %}
 <h1>{{ recipe.title }}</h1>
 <p class="recipe-page-img"><img src='/{{ recipe.photo }}' width="500"/></p>
-<div class="about">
-    <h2>Описание</h2>
-    <p>{{ recipe.about }}</p>
-</div>
 <div class="ingredients">
     <h2>Ингредиенты</h2>
     <ul>
@@ -25,6 +21,10 @@
             <li>{{item}}</li>
         {% endfor %}
     </ol>
+</div>
+<div class="about">
+    <h2>Описание</h2>
+    <p>{{ recipe.about }}</p>
 </div>
 {% endif %}
 {% endblock %}
